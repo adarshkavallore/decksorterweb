@@ -1,0 +1,29 @@
+.card-input {
+    width:50vw;
+    font-size: 20px;
+}
+.card-input-container{
+    height: 15vh;
+    margin-top: 5vh;;
+    background-color: #6a676a;
+    border-radius: 6px;
+}
+.sort-button{
+    position: absolute;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+    margin-left: 2vw;
+    border-radius: 6px;
+    background-color: green;
+    color:whitesmoke;
+}
+.card-inner-holder{
+    padding: 20px;
+    
+}
+.card-result-container{
+    height: 15vh;
+    margin-top: 5vh;;
+    background-color: #6a676a;
+    border-radius: 6px;
+}

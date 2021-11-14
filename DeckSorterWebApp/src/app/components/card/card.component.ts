@@ -10,6 +10,7 @@ import { SortService } from '../../services/sort.service';
 export class CardComponent implements OnInit {
   input: string;
   cards: any[];
+  isLoading: boolean;
   errorMessage: any;
   validInputCards: any[];
   sortedCards: any[];
@@ -55,13 +56,16 @@ isvalidCard(c: string) {
     this.errorMessage = undefined;
   }
   sort() {
+    this.isLoading = true;
     this.sortService.sortCards(this.validInputCards).subscribe((res) => {
       this.sortedCards = res;
       this.errorMessage = undefined;
+      this.isLoading = false;
     },
     (error: any) => {
       this.sortedCards =  [];
       this.errorMessage = error;
+      this.isLoading = false;
     });
   }
 }

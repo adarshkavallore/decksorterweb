@@ -13,8 +13,7 @@ export class CardInputComponent implements OnInit {
   constructor(private sortService: SortService) { }
 
   ngOnInit() {
-    this.data = '2d,8s,Js,3c,Ac,4h,10h,Kh';
-    this.outData = 'res';
+    this.data = '';
 
   }
 
@@ -25,7 +24,6 @@ export class CardInputComponent implements OnInit {
     },
     (error: any) => {
       this.outData =  error;
-      console.log(error);
     });
   }
 }

@@ -1,13 +1,13 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { constants } from 'src/shared/global-constants';
-import { SortService } from '../services/sort.service';
+import { SortService } from '../../services/sort.service';
 
 @Component({
-  selector: 'app-card-input',
-  templateUrl: './card-input.component.html',
-  styleUrls: ['./card-input.component.css']
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css']
 })
-export class CardInputComponent implements OnInit {
+export class CardComponent implements OnInit {
   input: string;
   cards: any[];
   errorMessage: any;

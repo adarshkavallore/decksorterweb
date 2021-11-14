@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CardInputComponent } from './card-input/card-input.component';
+import { CardComponent } from './components/card/card.component';
 
 
 const routes: Routes = [
   {
     path : '',
-    component: CardInputComponent
+    component: CardComponent
   },
   {
-    path: 'result',
-    loadChildren: () => import('./card-output/card-output.module').then(m => m.CardOutputModule)
-  }
+    path : '**',
+    component: CardComponent
+  },
+
 ];
 
 @NgModule({

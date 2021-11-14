@@ -30,7 +30,7 @@ export class CardInputComponent implements OnInit {
     }
     this.cards = this.input.split(',');
     this.cards = this.cards.filter(x => x !== '');
-    let isValid = true;
+    let isValid = this.cards.length > 1;
     this.cards.forEach (x => {
         if ( !this.isvalidCard(x)) {
           this.sortedCards = [];
@@ -54,13 +54,11 @@ isvalidCard(c: string) {
   sort() {
     this.sortService.sortCards(this.validInputCards).subscribe((res) => {
       this.sortedCards = res;
-      console.log('sssss', this.sortedCards.length);
       this.errorMessage = undefined;
     },
     (error: any) => {
       this.sortedCards =  [];
       this.errorMessage = error;
-      console.log('ss', this.errorMessage);
     });
   }
 }

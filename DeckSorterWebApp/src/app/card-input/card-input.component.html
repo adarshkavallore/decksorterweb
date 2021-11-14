@@ -20,28 +20,34 @@
 
         </div>
     </div>
-    <div *ngIf ="sortedCards.length>0" class="card-inner-holder" style="height: 50vh;">
-        <div *ngIf="!errorMessage">
-            <span style="color: #5dff71;"> Successfull! Deck is sorted. </span>
-            <div class="card-result-container">
-                <div class="result">
-                    <div class="card-element" *ngFor="let sortedCard  of sortedCards">
+    
+    <div *ngIf ="sortedCards.length>0 ||errorMessage" class="card-inner-holder" style="height: 50vh;">
+        <ng-container *ngIf="!errorMessage ; else errorTemplate" >
 
-                        <span> {{sortedCard}}</span>
+            <div  >
+                <span style="color: #5dff71;"> Successfull! Deck is sorted. </span>
+                <div class="card-result-container">
+                    <div class="result">
+                        <div class="card-element" *ngFor="let sortedCard  of sortedCards">
+    
+                            <span> {{sortedCard}}</span>
+                        </div>
+    
                     </div>
-
                 </div>
             </div>
-        </div>
-        <div *ngIf="errorMessage">
-            <span style="color: red;"> Looks like there is some error. </span>
-            <div class="card-result-container">
-                <div class="result">
-                    <span> {{sortedCards}}</span>
-
+        </ng-container>
+        <ng-template #errorTemplate>
+            <div >
+                <span style="color: red;"> Looks like there is some error. </span>
+                <div class="card-result-container">
+                    <div class="result">
+                        <span style="color: rgb(245, 23, 23);"> {{errorMessage}}</span>
+    
+                    </div>
                 </div>
+                
             </div>
-            
-        </div>
+        </ng-template>
     </div>
 </div>

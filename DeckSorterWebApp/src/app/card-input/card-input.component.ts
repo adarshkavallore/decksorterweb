@@ -18,8 +18,7 @@ export class CardInputComponent implements OnInit {
   ngOnInit() {
     this.input = '';
     this.validInputCards = [];
-    this.sortedCards = [];
-    this.errorMessage = undefined;
+    this.clearResultContent();
 
   }
   isInputValid(): boolean {
@@ -33,7 +32,7 @@ export class CardInputComponent implements OnInit {
     let isValid = this.cards.length > 1;
     this.cards.forEach (x => {
         if ( !this.isvalidCard(x)) {
-          this.sortedCards = [];
+          this.clearResultContent();
           isValid =  false;
         } else {
 
@@ -51,6 +50,10 @@ isvalidCard(c: string) {
   }
   return false;
 }
+  clearResultContent() {
+    this.sortedCards = [];
+    this.errorMessage = undefined;
+  }
   sort() {
     this.sortService.sortCards(this.validInputCards).subscribe((res) => {
       this.sortedCards = res;

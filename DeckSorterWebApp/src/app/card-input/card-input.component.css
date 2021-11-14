@@ -3,7 +3,7 @@
     font-size: 20px;
 }
 .card-input-container{
-    height: 15vh;
+    min-height: 15vh;
     margin-top: 5vh;;
     background-color: #6a676a;
     border-radius: 6px;
@@ -22,8 +22,21 @@
     
 }
 .card-result-container{
-    height: 15vh;
+    min-height: 15vh;
     margin-top: 5vh;;
     background-color: #6a676a;
     border-radius: 6px;
+}
+.result{
+    overflow: auto;
+    overflow-wrap: anywhere;
+    padding: 30px;
+}
+.card-element{
+    margin: 4px;
+    height: 30px;
+    align-items: center;
+    width: 30px;
+    background-color: black;
+    color: chartreuse;
 }

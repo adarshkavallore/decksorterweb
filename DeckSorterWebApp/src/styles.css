@@ -15,7 +15,7 @@ p{
 .card-holder{
     padding: 40px;
     width: 70vw;
-    height: 50vh;
+    min-height: 50vh;
     background-color: #313131;
     font-size: 20px;
 }

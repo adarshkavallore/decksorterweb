@@ -9,7 +9,8 @@ import { SortService } from '../services/sort.service';
 export class CardInputComponent implements OnInit {
   data: any;
   cards: any;
-  outData: any;
+  sortedCards: any;
+  success: boolean;
   constructor(private sortService: SortService) { }
 
   ngOnInit() {
@@ -20,10 +21,12 @@ export class CardInputComponent implements OnInit {
   sort() {
     this.cards = this.data.split(',');
     this.sortService.sortCards(this.cards).subscribe((res) => {
-      this.outData = res;
+      this.sortedCards = res;
+      this.success = true;
     },
     (error: any) => {
-      this.outData =  error;
+      this.sortedCards =  error;
+      this.success = false;
     });
   }
 }

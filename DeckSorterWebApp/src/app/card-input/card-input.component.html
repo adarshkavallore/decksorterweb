@@ -1,16 +1,35 @@
-<div class = "card-holder">
+<div class="card-holder">
     <div class="card-inner-holder">
         <div class="card-input-container">
             <span style="padding: 20px;"> cards</span>
-        <input class="card-input" type="text" placeholder="enter cards separated by comma" [(ngModel)] = "data" >
-        <input class="sort-button" type="button" (click) = "sort()" value="SORT">
-    
+            <input class="card-input" type="text" placeholder="enter cards separated by comma" [(ngModel)]="data">
+            <input *ngIf="data" class="sort-button" type="button" (click)="sort()" value="SORT">
+
         </div>
     </div>
-    <div *ngIf ="outData" class="card-inner-holder" style="height: 50vh;">
-        <span>  deck is sorted. </span>
-        <div class="card-result-container">
-            <span>  {{outData}}</span>
+    <!-- <div *ngIf ="sortedCards" class="card-inner-holder" style="height: 50vh;"> -->
+    <div class="card-inner-holder" style="height: 50vh;">
+        <div *ngIf="success">
+            <span> deck is sorted. </span>
+            <div class="card-result-container">
+                <div class="result">
+                    <div class="card-element" *ngFor="let sortedCard  of sortedCards">
+
+                        <span> {{sortedCard}}</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!success">
+            <span style="color: red;"> Looks like there is some error. </span>
+            <div class="card-result-container">
+                <div class="result">
+                    <span> {{sortedCards}}</span>
+
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>

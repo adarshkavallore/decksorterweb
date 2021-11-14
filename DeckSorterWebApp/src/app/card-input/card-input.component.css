@@ -1,5 +1,5 @@
 .card-input {
-    width:50vw;
+    width:75%;
     font-size: 20px;
 }
 .card-input-container{
@@ -9,7 +9,6 @@
     border-radius: 6px;
 }
 .sort-button{
-    position: absolute;
     padding-left: 2.5vw;
     padding-right: 2.5vw;
     margin-left: 2vw;
@@ -28,15 +27,26 @@
     border-radius: 6px;
 }
 .result{
-    overflow: auto;
+    overflow: auto; 
     overflow-wrap: anywhere;
     padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
 }
 .card-element{
     margin: 4px;
     height: 30px;
     align-items: center;
-    width: 30px;
-    background-color: black;
-    color: chartreuse;
+    width: 4vw;
+    border: 3px solid #4b4949;
+    border-radius: 10%;
+}
+.card-element span{
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+}
+.valid{
+    width: -webkit-fill-available;
+    padding-bottom: 2%;
 }

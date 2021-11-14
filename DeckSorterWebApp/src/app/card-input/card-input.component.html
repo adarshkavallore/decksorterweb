@@ -1,16 +1,28 @@
 <div class="card-holder">
     <div class="card-inner-holder">
+<span > Insructions: </span> <span style="font-size: small;">cards should be entered as 'first letter(Capital letters) of Rank followed by first letter(small letter) of Suit Eg: '2d' for Two of Diamonds </span>
+
         <div class="card-input-container">
-            <span style="padding: 20px;"> cards</span>
-            <input class="card-input" type="text" placeholder="enter cards separated by comma" [(ngModel)]="data">
-            <input *ngIf="data" class="sort-button" type="button" (click)="sort()" value="SORT">
+            <div style="padding-top: 3%;">   
+            <span style="padding: 1%;"> cards</span>
+            <input class="card-input" type="text" placeholder="enter cards separated by comma" [(ngModel)]="input">
+            <input *ngIf="isInputValid()" class="sort-button" type="button" (click)="sort()" value="SORT">
+            </div>
+            <div *ngIf="validInputCards.length>0" class="result ">
+                <div class="valid">
+                    <span >valid cards entered: </span>
+                </div>
+                <div class="card-element" *ngFor="let card of validInputCards">
+    
+                    <span> {{card}}</span>
+                </div>
+            </div>
 
         </div>
     </div>
-    <!-- <div *ngIf ="sortedCards" class="card-inner-holder" style="height: 50vh;"> -->
-    <div class="card-inner-holder" style="height: 50vh;">
-        <div *ngIf="success">
-            <span> deck is sorted. </span>
+    <div *ngIf ="sortedCards.length>0" class="card-inner-holder" style="height: 50vh;">
+        <div *ngIf="!errorMessage">
+            <span style="color: #5dff71;"> Successfull! Deck is sorted. </span>
             <div class="card-result-container">
                 <div class="result">
                     <div class="card-element" *ngFor="let sortedCard  of sortedCards">
@@ -21,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="!success">
+        <div *ngIf="errorMessage">
             <span style="color: red;"> Looks like there is some error. </span>
             <div class="card-result-container">
                 <div class="result">
